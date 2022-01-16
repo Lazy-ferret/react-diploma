@@ -1,7 +1,8 @@
+import { requestTopSales } from "../lib/api";
 import {
     FETCH_TOP_SALES_REQUEST,
     FETCH_TOP_SALES_FAILURE,
-    FETCH_TOP_SALES_SUCCESS    
+    FETCH_TOP_SALES_SUCCESS
 } from "./actionTypes";
 
 export const fetchTopSalesRequest = () => ({
@@ -25,11 +26,7 @@ export const fetchTopSalesSuccess = (items) => ({
 export const fetchTopSales = async dispatch => {
     dispatch(fetchTopSalesRequest());
     try {
-        const response = await fetch(`${process.env.REACT_APP_TOP_SALES_URL}`);
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        };
-        const data = await response.json();
+        const data = await requestTopSales();
         dispatch(fetchTopSalesSuccess(data));
     } catch (e) {
         dispatch(fetchTopSalesFailure(e.message));

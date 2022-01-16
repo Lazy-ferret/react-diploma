@@ -1,4 +1,5 @@
 
+import { requestCategories, requestChoosenCategory } from "../lib/api";
 import {
     FETCH_CATEGORIES_REQUEST,
     FETCH_CATEGORIES_FAILURE,
@@ -29,11 +30,7 @@ export const fetchCategoriesSuccess = (items) => ({
 export const fetchCategories = async dispatch => {
     dispatch(fetchCategoriesRequest());
     try {
-        const response = await fetch(`${process.env.REACT_APP_CATEGORIES_URL}`);
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        };
-        const data = await response.json();
+        const data = await requestCategories();
         dispatch(fetchCategoriesSuccess(data));
     } catch (e) {
         dispatch(fetchCategoriesFailure(e.message));
@@ -57,13 +54,7 @@ export const fetchChoosenCategorySuccess = (items) => ({
 export const fetchCategoryItems = async (id, dispatch) => {
     dispatch(fetchChoosenCategoryRequest(id));
     try {
-        const response = await fetch(`${process.env.REACT_APP_ITEMS_URL}?categoryId=${id}`);
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        } else if (!id) {
-            fetchCatalog(dispatch);
-        };
-        const data = await response.json();
+        const data = await requestChoosenCategory(id);
         dispatch(fetchCatalogSuccess(data, id));
         dispatch(fetchChoosenCategorySuccess());
     } catch (e) {

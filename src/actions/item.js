@@ -1,3 +1,4 @@
+import { requestItem } from "../lib/api";
 import {
     FETCH_ITEM_REQUEST,
     FETCH_ITEM_FAILURE,
@@ -31,11 +32,7 @@ export const fetchItemSuccess = (item) => ({
 export const fetchItem = async (id, dispatch) => {
     dispatch(fetchItemRequest());
     try {
-        const response = await fetch(`${process.env.REACT_APP_ITEMS_URL}/${id}`);
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        };
-        const data = await response.json();
+        const data = await requestItem(id);
         dispatch(fetchItemSuccess(data));
     } catch (e) {
         dispatch(fetchItemFailure(e.message));

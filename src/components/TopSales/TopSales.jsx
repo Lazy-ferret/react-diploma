@@ -23,7 +23,7 @@ export default function TopSales() {
         <section className="top-sales">
             <h2 className="text-center">Хиты продаж!</h2>
             <div className="row">
-                {items.map(item =>
+                {items && items.map(item =>
                     <div className="col-4" key={item.id}>
                         <div className="card">
                             <img src={item.images[0]}

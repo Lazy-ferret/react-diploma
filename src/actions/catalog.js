@@ -1,3 +1,4 @@
+import { requestCatalogItems, requestCategoryLoadMore, requestLoadMore, requestSearchText } from "../lib/api";
 import {
     FETCH_CATALOG_REQUEST,
     FETCH_CATALOG_FAILURE,
@@ -32,11 +33,7 @@ export const fetchCatalogSuccess = (items, id) => ({
 export const fetchCatalog = async (dispatch) => {
     dispatch(fetchCatalogRequest());
     try {
-        const response = await fetch(`${process.env.REACT_APP_ITEMS_URL}`);
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        };
-        const data = await response.json();
+        const data = await requestCatalogItems();
         dispatch(fetchCatalogSuccess(data));
     } catch (e) {
         dispatch(fetchCatalogFailure(e.message));
@@ -54,12 +51,10 @@ export const fetchLoadMore = async (id, dispatch) => {
     dispatch(fetchLoadMoreRequest(id));
     try {
         if (!id) {
-            const response = await fetch(`${process.env.REACT_APP_ITEMS_URL}?offset=${OFFSET}`);
-            const data = await response.json();
+            const data = await requestLoadMore(OFFSET);
             dispatch(fetchCatalogSuccess(data));
         } else {
-            const response = await fetch(`${process.env.REACT_APP_ITEMS_URL}?categoryId=${id}&offset=${OFFSET}`);
-            const data = await response.json();
+            const data = await requestCategoryLoadMore(OFFSET, id);
             dispatch(fetchCatalogSuccess(data));
             dispatch(fetchChoosenCategorySuccess());
         };
@@ -87,9 +82,6 @@ export const fetchSearchText = (searchText, id) => ({
 
 export const FetchSearchTextItems = async (searchText, id, dispatch) => {
     dispatch(fetchSearchText(searchText, id));
-    const respCatalog = await fetch(`${process.env.REACT_APP_ITEMS_URL}?q=${searchText}`);
-    const respCurrentCategory = await fetch(`${process.env.REACT_APP_ITEMS_URL}?categoryId=${id}&q=${searchText}`);
-    const response = (!id) ? respCatalog : respCurrentCategory;
-    const data = await response.json();
+    const data = await requestSearchText(searchText, id);
     dispatch(fetchCatalogSuccess(data));
 };

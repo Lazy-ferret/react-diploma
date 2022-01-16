@@ -1,3 +1,4 @@
+import { createOrder } from "../lib/api";
 import {
     FETCH_ORDER_REQUEST,
     FETCH_ORDER_FAILURE,
@@ -31,15 +32,9 @@ export const fetchOrderSuccess = () => ({
 export const postOrder = (currentOrder) => async dispatch => {
     dispatch(fetchOrderRequest());
     try {
-        const response = await fetch(`${process.env.REACT_APP_ORDER_URL}`,
-            {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(currentOrder),
-            });
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        };
+        
+        // const response = await createOrder(currentOrder); 
+        createOrder(currentOrder);
         dispatch(fetchOrderSuccess());
         dispatch(clearStorage());
     } catch (e) {
