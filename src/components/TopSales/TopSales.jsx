@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { fetchTopSales } from '../../actions/actionCreators';
+import { fetchTopSales } from '../../actions/topSales';
 import Loader from '../Loader/Loader';
 
 export default function TopSales() {

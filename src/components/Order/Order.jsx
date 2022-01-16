@@ -6,7 +6,7 @@ import {
     addOrderAgreement,
     postOrder,
     initOrder
-} from '../../actions/actionCreators';
+} from '../../actions/order';
 import Loader from '../Loader/Loader';
 import './Order.css';
 

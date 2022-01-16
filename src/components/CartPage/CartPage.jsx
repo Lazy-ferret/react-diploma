@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { nanoid } from 'nanoid';
-import { getCartItems, getCartSum } from '../../actions/actionCreators';
+import { getCartItems, getCartSum } from '../../actions/cart';
 import Order from '../Order/Order';
 import './CartPage.css';
 

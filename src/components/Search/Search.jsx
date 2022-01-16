@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addSearchText, FetchSearchTextItems } from '../../actions/actionCreators';
+import { addSearchText, FetchSearchTextItems } from '../../actions/catalog';
 import Loader from '../Loader/Loader';
 
 export default function Search() {

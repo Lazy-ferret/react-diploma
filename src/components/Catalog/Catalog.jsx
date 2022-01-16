@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { fetchCatalog, fetchLoadMore } from '../../actions/actionCreators';
+import { fetchCatalog, fetchLoadMore } from '../../actions/catalog';
 import Categories from '../Categories/Categories';
 import Search from '../Search/Search';
 import Loader from '../Loader/Loader';

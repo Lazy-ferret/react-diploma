@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { addSearchText, FetchSearchTextItems } from '../../actions/actionCreators';
+import { addSearchText, FetchSearchTextItems } from '../../actions/catalog';
 import logo from "../../img/header-logo.png";
 
 export default function Header() {

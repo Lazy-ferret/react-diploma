@@ -5,9 +5,9 @@ import {
     addItemSize,
     deleteItemSize,
     fetchItem,
-    changeItemQuantity,
-    addCartItem
-} from '../../actions/actionCreators';
+    changeItemQuantity    
+} from '../../actions/item';
+import {addCartItem} from '../../actions/cart';
 import Loader from '../Loader/Loader';
 
 export default function Item() {
