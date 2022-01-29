@@ -1,5 +1,3 @@
-import { fetchCatalog } from "../actions/catalog";
-
 export const requestTopSales = async () => {
     const response = await fetch(`${process.env.REACT_APP_TOP_SALES_URL}`);
     if (!response.ok) {
@@ -18,13 +16,13 @@ export const requestCategories = async () => {
     return data;
 }
 
-export const requestChoosenCategory = async (id, dispatch) => {
-    const response = await fetch(`${process.env.REACT_APP_ITEMS_URL}?categoryId=${id}`);
+export const requestChoosenCategory = async (id) => {
+    const respCatalog = await fetch(`${process.env.REACT_APP_ITEMS_URL}`);
+    const respChoosenCategory = await fetch(`${process.env.REACT_APP_ITEMS_URL}?categoryId=${id}`);
+    const response = (!id) ? respCatalog : respChoosenCategory;
     if (!response.ok) {
         throw new Error(response.statusText);
-    } else if (!id) {
-        fetchCatalog(dispatch);
-    };
+    }
     const data = await response.json();
     return data;
 }
@@ -64,6 +62,7 @@ export const requestSearchText = async (searchText, id) => {
     const respCurrentCategory = await fetch(`${process.env.REACT_APP_ITEMS_URL}?categoryId=${id}&q=${searchText}`);
     const response = (!id) ? respCatalog : respCurrentCategory;
     const data = await response.json();
+
     return data;
 }
 

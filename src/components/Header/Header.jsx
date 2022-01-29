@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { addSearchText, FetchSearchTextItems } from '../../actions/catalog';
+import { addSearchText, fetchSearchTextItems } from '../../actions/catalog';
 import logo from "../../img/header-logo.png";
 
 export default function Header() {
     const { currentCategory } = useSelector(state => state.catalog);
-    const cart = useSelector(state => state.cart.cart.storageItems);
+    const cart = useSelector(state => state.cart.cart);
     const [visible, setVisible] = useState(false);
     const [searchingText, setSearchingText] = useState('');
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ export default function Header() {
         } else {
             dispatch(addSearchText(searchingText));
             navigate('/catalog');
-            FetchSearchTextItems(searchingText, currentCategory, dispatch);
+            dispatch(fetchSearchTextItems(searchingText, currentCategory, dispatch));
             setVisible(false);
             setSearchingText('')
         }
@@ -29,7 +29,6 @@ export default function Header() {
 
     const onInputChange = (evt) => {
         setSearchingText(evt.target.value);
-        console.log(searchingText);
     };
 
     return (

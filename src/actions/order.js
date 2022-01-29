@@ -8,7 +8,7 @@ import {
     ADD_ORDER_AGREEMENT,
     INIT_ORDER
 } from "./actionTypes";
-import { clearStorage } from "./cart";
+ import { clearStorage } from "./cart";
 
 export const initOrder = () => ({
     type: INIT_ORDER

@@ -7,7 +7,7 @@ import {
     FETCH_CHOOSEN_CATEGORY_REQUEST,
     FETCH_CHOOSEN_CATEGORY_SUCCESS
 } from "./actionTypes";
-import { fetchCatalog, fetchCatalogSuccess } from "./catalog";
+import { fetchCatalogSuccess } from "./catalog";
 
 export const fetchCategoriesRequest = () => ({
     type: FETCH_CATEGORIES_REQUEST,

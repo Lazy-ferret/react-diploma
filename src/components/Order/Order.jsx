@@ -12,7 +12,7 @@ import './Order.css';
 
 export default function Order() {
     const order = useSelector(state => state.order);
-    const cart = useSelector(state => state.cart.cart.storageItems);
+    const cart = useSelector(state => state.cart.cart);
     const dispatch = useDispatch();
 
     useEffect(() => {

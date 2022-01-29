@@ -8,13 +8,15 @@ import itemReducer from "../reducers/item";
 import orderReducer from "../reducers/order";
 import topSalesReducer from "../reducers/topSales";
 
+
 const reducer = combineReducers({
   topSales: topSalesReducer,
   categories: categoriesReducer, 
   catalog: catalogReducer, 
   item: itemReducer, 
   cart: cartReducer,
-  order: orderReducer
+  order: orderReducer,
+ 
 });
 
 const store = createStore(

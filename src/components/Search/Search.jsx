@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addSearchText, FetchSearchTextItems } from '../../actions/catalog';
+import { addSearchText, fetchSearchTextItems } from '../../actions/catalog';
 import Loader from '../Loader/Loader';
 
 export default function Search() {
@@ -13,7 +13,8 @@ export default function Search() {
 
     const onInputSubmit = async (evt) => {
         evt.preventDefault();
-        FetchSearchTextItems(searchText, currentCategory, dispatch);
+         dispatch(fetchSearchTextItems(searchText, currentCategory, dispatch));
+        // fetchSearchTextItems(searchText, currentCategory, dispatch);
     };
 
     if (loading) {

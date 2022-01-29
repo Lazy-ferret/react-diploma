@@ -30,7 +30,7 @@ export const fetchCatalogSuccess = (items, id) => ({
     }
 });
 
-export const fetchCatalog = async (dispatch) => {
+export const fetchCatalog = async dispatch => {
     dispatch(fetchCatalogRequest());
     try {
         const data = await requestCatalogItems();
@@ -48,6 +48,7 @@ export const fetchLoadMoreRequest = (id) => ({
 });
 
 export const fetchLoadMore = async (id, dispatch) => {
+    
     dispatch(fetchLoadMoreRequest(id));
     try {
         if (!id) {
@@ -80,8 +81,8 @@ export const fetchSearchText = (searchText, id) => ({
     }
 });
 
-export const FetchSearchTextItems = async (searchText, id, dispatch) => {
+export const fetchSearchTextItems = (searchText, id) => async dispatch => {
     dispatch(fetchSearchText(searchText, id));
     const data = await requestSearchText(searchText, id);
-    dispatch(fetchCatalogSuccess(data));
+    dispatch(fetchCatalogSuccess(data));  
 };
