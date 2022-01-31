@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addSearchText, fetchSearchTextItems } from '../../actions/catalog';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { fetchSearchTextItems } from '../../actions/catalog';
+import { getQuery, setQuery } from '../../lib/query';
 import Loader from '../Loader/Loader';
 
 export default function Search() {
-    const { searchText, currentCategory, loading, error } = useSelector(state => state.catalog);
+    const { currentCategory, loading, error } = useSelector(state => state.catalog);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    // eslint-disable-next-line no-unused-vars
+    const [searchParams, setSearchParams] = useSearchParams();
+    const id = getQuery(searchParams).categoryId
+    const [searchText, setSearchText] = useState('');
+
+    useEffect(() => {
+        setSearchText(getQuery(searchParams).q)
+    }, [searchParams]);
 
     const onInputChange = (evt) => {
-        dispatch(addSearchText(evt.target.value));
+        setSearchText(evt.target.value);
+
     };
 
     const onInputSubmit = async (evt) => {
         evt.preventDefault();
-         dispatch(fetchSearchTextItems(searchText, currentCategory, dispatch));
-        // fetchSearchTextItems(searchText, currentCategory, dispatch);
+        navigate({
+            pathname: '/catalog',
+            search: setQuery(id, searchText),
+            replace: true
+        })
+        dispatch(fetchSearchTextItems(searchText, currentCategory, dispatch));
     };
 
     if (loading) {

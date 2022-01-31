@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { addSearchText, fetchSearchTextItems } from '../../actions/catalog';
+import { fetchSearchTextItems } from '../../actions/catalog';
 import logo from "../../img/header-logo.png";
+import { setQuery } from '../../lib/query';
 
 export default function Header() {
     const { currentCategory } = useSelector(state => state.catalog);
     const cart = useSelector(state => state.cart.cart);
+    const categoryId = useSelector(state => state.categories.currentCategory);
+
     const [visible, setVisible] = useState(false);
     const [searchingText, setSearchingText] = useState('');
     const navigate = useNavigate();
@@ -19,8 +22,11 @@ export default function Header() {
         if (!searchingText) {
             setVisible(!visible);
         } else {
-            dispatch(addSearchText(searchingText));
-            navigate('/catalog');
+            navigate({
+                pathname: '/catalog',
+                search: setQuery(categoryId, searchingText),
+                replace: true
+            })
             dispatch(fetchSearchTextItems(searchingText, currentCategory, dispatch));
             setVisible(false);
             setSearchingText('')

@@ -62,10 +62,8 @@ export const requestSearchText = async (searchText, id) => {
     const respCurrentCategory = await fetch(`${process.env.REACT_APP_ITEMS_URL}?categoryId=${id}&q=${searchText}`);
     const response = (!id) ? respCatalog : respCurrentCategory;
     const data = await response.json();
-
     return data;
 }
-
 
 export const createOrder = async (newOrder) => {
     const response = await fetch(`${process.env.REACT_APP_ORDER_URL}`,

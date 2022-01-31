@@ -1,13 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { fetchCategoryItems, fetchCategories } from '../../actions/categories';
+import { setQuery } from '../../lib/query';
 import Loader from '../Loader/Loader';
 
 export default function Categories() {
     const { items, loading, error } = useSelector(state => state.categories);
     const categoryId = useSelector(state => state.categories.currentCategory);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchCategories(dispatch);
@@ -15,6 +18,11 @@ export default function Categories() {
 
     const handlerClick = (evt, id) => {
         evt.preventDefault();
+        navigate({
+            pathname: '/catalog',
+            search: setQuery(id),
+            replace: true
+        })
         fetchCategoryItems(id, dispatch);
     };
 

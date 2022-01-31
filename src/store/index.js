@@ -11,22 +11,22 @@ import topSalesReducer from "../reducers/topSales";
 
 const reducer = combineReducers({
   topSales: topSalesReducer,
-  categories: categoriesReducer, 
-  catalog: catalogReducer, 
-  item: itemReducer, 
+  categories: categoriesReducer,
+  catalog: catalogReducer,
+  item: itemReducer,
   cart: cartReducer,
   order: orderReducer,
- 
+
 });
 
 const store = createStore(
   reducer,
-  compose (
-    applyMiddleware(thunk, logger), 
-    window.__REDUX_DEVTOOLS_EXTENSION__ 
-    ? window.__REDUX_DEVTOOLS_EXTENSION__()
-    : f => f
-)
+  compose(
+    applyMiddleware(thunk, logger),
+    window.__REDUX_DEVTOOLS_EXTENSION__
+      ? window.__REDUX_DEVTOOLS_EXTENSION__()
+      : f => f
+  )
 );
 
 export default store;
