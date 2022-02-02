@@ -10,14 +10,14 @@ export default function Catalog({ search }) {
     const { items, loading, error } = useSelector(state => state.catalog);
     const categoryId = useSelector(state => state.categories.currentCategory);
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
-        fetchCatalog(dispatch);
+        dispatch(fetchCatalog());
     }, [dispatch]);
 
     const handlerClick = (evt, id) => {
         evt.preventDefault();
-        fetchLoadMore(id, dispatch);
+        dispatch(fetchLoadMore(id));
     };
 
     if (loading) {
@@ -45,7 +45,7 @@ export default function Catalog({ search }) {
                                 }} />
                             <div className="card-body">
                                 <p className="card-text">{item.title}</p>
-                                <p className="card-text">{item.price}</p>
+                                <p className="card-text">{item.price} руб.</p>
                                 <NavLink to={`/catalog/${item.id}`} className="btn btn-outline-primary">Заказать</NavLink>
                             </div>
                         </div>

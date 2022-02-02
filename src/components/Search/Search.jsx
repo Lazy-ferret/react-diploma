@@ -30,7 +30,7 @@ export default function Search() {
             search: setQuery(id, searchText),
             replace: true
         })
-        dispatch(fetchSearchTextItems(searchText, currentCategory, dispatch));
+        dispatch(fetchSearchTextItems(searchText, currentCategory));
     };
 
     if (loading) {

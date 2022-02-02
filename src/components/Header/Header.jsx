@@ -27,7 +27,7 @@ export default function Header() {
                 search: setQuery(categoryId, searchingText),
                 replace: true
             })
-            dispatch(fetchSearchTextItems(searchingText, currentCategory, dispatch));
+            dispatch(fetchSearchTextItems(searchingText, currentCategory));
             setVisible(false);
             setSearchingText('')
         }

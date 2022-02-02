@@ -9,7 +9,7 @@ export default function TopSales() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        fetchTopSales(dispatch);
+        dispatch(fetchTopSales());
     }, [dispatch]);
 
     if (loading) {
@@ -30,7 +30,7 @@ export default function TopSales() {
                                 className="card-img-top img-fluid" alt={item.tittle} />
                             <div className="card-body">
                                 <p className="card-text">{item.title}</p>
-                                <p className="card-text">{item.price}</p>
+                                <p className="card-text">{item.price} руб.</p>
                                 <NavLink to={`/catalog/${item.id}`} className="btn btn-outline-primary">Заказать</NavLink>
                             </div>
                         </div>

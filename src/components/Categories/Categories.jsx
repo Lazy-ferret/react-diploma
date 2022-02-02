@@ -13,7 +13,7 @@ export default function Categories() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchCategories(dispatch);
+        dispatch(fetchCategories());
     }, [dispatch]);
 
     const handlerClick = (evt, id) => {
@@ -23,7 +23,7 @@ export default function Categories() {
             search: setQuery(id),
             replace: true
         })
-        fetchCategoryItems(id, dispatch);
+        dispatch(fetchCategoryItems(id));
     };
 
     const getActiveCat = (id) => {

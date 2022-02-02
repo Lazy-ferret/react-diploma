@@ -23,7 +23,7 @@ export const fetchTopSalesSuccess = (items) => ({
     }
 });
 
-export const fetchTopSales = async dispatch => {
+export const fetchTopSales = () => async dispatch => {
     dispatch(fetchTopSalesRequest());
     try {
         const data = await requestTopSales();

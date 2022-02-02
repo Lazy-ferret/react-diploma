@@ -27,7 +27,7 @@ export const fetchCategoriesSuccess = (items) => ({
     }
 });
 
-export const fetchCategories = async dispatch => {
+export const fetchCategories = () => async dispatch => {
     dispatch(fetchCategoriesRequest());
     try {
         const data = await requestCategories();
@@ -51,7 +51,7 @@ export const fetchChoosenCategorySuccess = (items) => ({
     }
 });
 
-export const fetchCategoryItems = async (id, dispatch) => {
+export const fetchCategoryItems = (id) => async dispatch => {
     dispatch(fetchChoosenCategoryRequest(id));
     try {
         const data = await requestChoosenCategory(id);

@@ -32,8 +32,8 @@ export const fetchOrderSuccess = () => ({
 export const postOrder = (currentOrder) => async dispatch => {
     dispatch(fetchOrderRequest());
     try {
-        createOrder(currentOrder);
-        dispatch(fetchOrderSuccess());
+        const order = await createOrder(currentOrder);
+        dispatch(fetchOrderSuccess(order));
         dispatch(clearStorage());
     } catch (e) {
         dispatch(fetchOrderFailure(e.message));

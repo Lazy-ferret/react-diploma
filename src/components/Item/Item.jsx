@@ -26,7 +26,7 @@ export default function Item() {
     }, [dispatch, quantity]);
 
     useEffect(() => {
-        fetchItem(id, dispatch);
+        dispatch(fetchItem(id));
     }, [dispatch, id]);
 
     const onSizeClick = (e) => {

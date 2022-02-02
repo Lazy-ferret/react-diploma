@@ -30,7 +30,7 @@ export const fetchCatalogSuccess = (items, id) => ({
     }
 });
 
-export const fetchCatalog = async dispatch => {
+export const fetchCatalog = () => async dispatch => {
     dispatch(fetchCatalogRequest());
     try {
         const data = await requestCatalogItems();
@@ -47,8 +47,7 @@ export const fetchLoadMoreRequest = (id) => ({
     }
 });
 
-export const fetchLoadMore = async (id, dispatch) => {
-    
+export const fetchLoadMore = (id) => async dispatch => {    
     dispatch(fetchLoadMoreRequest(id));
     try {
         if (!id) {

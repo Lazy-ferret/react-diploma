@@ -29,7 +29,7 @@ export const fetchItemSuccess = (item) => ({
     }
 });
 
-export const fetchItem = async (id, dispatch) => {
+export const fetchItem = (id) => async dispatch => {
     dispatch(fetchItemRequest());
     try {
         const data = await requestItem(id);
@@ -39,26 +39,20 @@ export const fetchItem = async (id, dispatch) => {
     }
 };
 
-export const addItemSize = (size) => async dispatch => {
-    dispatch({
-        type: ADD_ITEM_SIZE,
-        payload: {
-            size
-        }
-    })
-};
+export const addItemSize = (size) => ({
+    type: ADD_ITEM_SIZE,
+    payload: {
+        size
+    }
+});
 
-export const deleteItemSize = () => async dispatch => {
-    dispatch({
-        type: DELETE_ITEM_SIZE
-    })
-};
+export const deleteItemSize = () => ({
+    type: DELETE_ITEM_SIZE
+});
 
-export const changeItemQuantity = (quantity) => async dispatch => {
-    dispatch({
-        type: CHANGE_ITEM_QUANTITY,
-        payload: {
-            quantity
-        }
-    })
-};
+export const changeItemQuantity = (quantity) => ({
+    type: CHANGE_ITEM_QUANTITY,
+    payload: {
+        quantity
+    }
+});
