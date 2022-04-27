@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/uhs8h8ywdx5ev464/branch/master?svg=true)](https://ci.appveyor.com/project/Lazy-ferret/react-diploma/branch/master)
+
 # Дипломный проект курса «React»
 
 Дипломный проект представляет собой интернет-магазин обуви - работающее приложение, всеми основными функциями которого можно пользоваться.
