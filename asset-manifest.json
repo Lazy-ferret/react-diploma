@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "https://lazy-ferret.github.io/react-diploma/static/css/main.51d54ac7.chunk.css",
+    "main.js": "https://lazy-ferret.github.io/react-diploma/static/js/main.cad96300.chunk.js",
+    "main.js.map": "https://lazy-ferret.github.io/react-diploma/static/js/main.cad96300.chunk.js.map",
+    "runtime-main.js": "https://lazy-ferret.github.io/react-diploma/static/js/runtime-main.26ce12a9.js",
+    "runtime-main.js.map": "https://lazy-ferret.github.io/react-diploma/static/js/runtime-main.26ce12a9.js.map",
+    "static/css/2.383c0125.chunk.css": "https://lazy-ferret.github.io/react-diploma/static/css/2.383c0125.chunk.css",
+    "static/js/2.44b01540.chunk.js": "https://lazy-ferret.github.io/react-diploma/static/js/2.44b01540.chunk.js",
+    "static/js/2.44b01540.chunk.js.map": "https://lazy-ferret.github.io/react-diploma/static/js/2.44b01540.chunk.js.map",
+    "static/js/3.9cb20e5e.chunk.js": "https://lazy-ferret.github.io/react-diploma/static/js/3.9cb20e5e.chunk.js",
+    "static/js/3.9cb20e5e.chunk.js.map": "https://lazy-ferret.github.io/react-diploma/static/js/3.9cb20e5e.chunk.js.map",
+    "index.html": "https://lazy-ferret.github.io/react-diploma/index.html",
+    "static/css/2.383c0125.chunk.css.map": "https://lazy-ferret.github.io/react-diploma/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.51d54ac7.chunk.css.map": "https://lazy-ferret.github.io/react-diploma/static/css/main.51d54ac7.chunk.css.map",
+    "static/js/2.44b01540.chunk.js.LICENSE.txt": "https://lazy-ferret.github.io/react-diploma/static/js/2.44b01540.chunk.js.LICENSE.txt",
+    "static/media/banner.5fd2c60d.jpg": "https://lazy-ferret.github.io/react-diploma/static/media/banner.5fd2c60d.jpg",
+    "static/media/App.css": "https://lazy-ferret.github.io/react-diploma/static/media/footer-sprite.b3d5697a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.26ce12a9.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.44b01540.chunk.js",
+    "static/css/main.51d54ac7.chunk.css",
+    "static/js/main.cad96300.chunk.js"
+  ]
+}
